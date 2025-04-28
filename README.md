@@ -145,15 +145,6 @@ This may result in:
 3. Optionally extract files or drop a webshell using the same method.
 4. For reboot/factory reset, issue a GET request to `/cgi-bin/devmanage_resetDefault.php`.
 
----
-
-## Recommendations
-
-- Immediately **remove public access** to affected devices.
-- Apply **input sanitization** to all CGI scripts.
-- Avoid using `shell_exec()` with user input.
-- Restrict access to configuration endpoints via authentication.
-- Apply firmware updates (if available) or contact vendor for mitigation guidance.
 
 ---
 
