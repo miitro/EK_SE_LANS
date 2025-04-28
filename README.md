@@ -107,7 +107,7 @@ The `Zone` parameter is directly concatenated into a shell command, enabling arb
 A simple unauthenticated request to:
 
 ```
-http://<device-ip>/cgi-bin/devmanage_resetDefault.php
+http://<device-ip>/cgi-bin/devmanage_reboot.php
 ```
 
 **immediately reboots the device**, without requiring login or confirmation.
