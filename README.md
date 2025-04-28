@@ -158,15 +158,15 @@ This may result in:
 
 ## Disclosure Timeline
 
-- TBD – Vendor notification in progress.
-- TBD – CVE Assignment pending.
-- TBD – Public disclosure.
+- 15/04/2025  – Vendor notification in progress.
+
+- 28/04/2025 – Public disclosure.
 
 ---
 
 ## Credits
 
-Discovered and responsibly disclosed by **[Anonymous Researcher / Team Name if applicable]**
+Discovered and responsibly disclosed by **miitro**
 
 ---
 
